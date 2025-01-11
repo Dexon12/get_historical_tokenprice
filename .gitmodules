@@ -1,0 +1,3 @@
+[submodule "quickstarts-historical-prices-api"]
+	path = quickstarts-historical-prices-api
+	url = https://github.com/smartcontractkit/quickstarts-historical-prices-api
