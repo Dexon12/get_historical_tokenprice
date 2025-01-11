@@ -15,10 +15,6 @@ async def get_token_price_by_timestamp(
         description="Timestamp in the format 'YYYY-MM-DD HH:MM:SS'",
         example="2023-01-01 12:00:00",
     ),
-    end_timestamp: Optional[datetime] = Query(
-        default=None,
-        description="End timestamp in the format 'YYYY-MM-DD HH:MM:SS'",
-    ),
     network: NetworkSlug = Query(description="In what network do you want to check the price?"),
     token_tiker: str = Query(description="Which token price do you want to get?"),
     second_token_tiker: str = Query(description="In what token do you want to see that token?")
@@ -27,12 +23,8 @@ async def get_token_price_by_timestamp(
         token_pair = f"{token_tiker}-{second_token_tiker}"
 
         unix_timestamp = int(timestamp.timestamp())
-        if end_timestamp:
-            unix_end_timestamp = int(end_timestamp.timestamp())
-            
-        if not end_timestamp:
-            end_timestamp = timestamp
-            unix_end_timestamp = unix_timestamp
+        end_timestamp = timestamp
+        unix_end_timestamp = unix_timestamp
 
         chainlink_get_price = ChainlinkGetPrice(
                     network=network, token_pair=token_pair,
