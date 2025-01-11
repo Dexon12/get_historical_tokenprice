@@ -67,11 +67,11 @@ start_uvicorn_server() {
 
 start_yarn_server() {
     echo "Starting Yarn server..."
-    if [ ! -d "historical-prices-api" ]; then
-        echo "Error: Directory 'historical-prices-api' not found."
+    if [ ! -d "quickstarts-historical-prices-api" ]; then
+        echo "Error: Directory 'quickstarts-historical-prices-api' not found."
         return
     fi
-    cd historical-prices-api
+    cd quickstarts-historical-prices-api
     yarn install
     yarn build
     yarn start

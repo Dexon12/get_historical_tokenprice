@@ -53,7 +53,7 @@ services:
 
   chainlist_api:
     build:
-      context: ./historical-prices-api
+      context: ./quickstarts-historical-prices-api_
       dockerfile: Dockerfile
     container_name: chainlist_api
     ports:
