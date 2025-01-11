@@ -1,0 +1,158 @@
+{
+    "network": [
+        {
+            "chain_id": 1,
+            "id": 1,
+            "name": "Ethereum",
+            "rpc_url": "https://ethereum-rpc.publicnode.com",
+            "settings": {
+                "MAX_GAS": 100000000000
+            },
+            "slug": "mainnet",
+            "txn_explorer_url": "https://etherscan.io/tx/"
+        },
+        {
+            "chain_id": 5,
+            "id": 2,
+            "name": "Goerli",
+            "rpc_url": "https://rpc.ankr.com/eth_goerli",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "goerli",
+            "txn_explorer_url": "https://goerli.etherscan.io/"
+        },
+        {
+            "chain_id": 42161,
+            "id": 3,
+            "name": "Arbitrum",
+            "rpc_url": "https://arb1.arbitrum.io/rpc",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "arbitrum",
+            "txn_explorer_url": "https://arbiscan.io/tx/"
+        },
+        {
+            "chain_id": 56,
+            "id": 4,
+            "name": "BSC",
+            "rpc_url": "https://bsc-pokt.nodies.app",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "bsc",
+            "txn_explorer_url": "https://bscscan.com/tx/"
+        },
+        {
+            "chain_id": 137,
+            "id": 5,
+            "name": "Polygon",
+            "rpc_url": "https://rpc.ankr.com/polygon",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "polygon",
+            "txn_explorer_url": "https://polygonscan.com/"
+        },
+        {
+            "chain_id": 43114,
+            "id": 6,
+            "name": "Avalanche",
+            "rpc_url": "https://rpc.ankr.com/avalanche",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "avalanche",
+            "txn_explorer_url": "https://snowtrace.io/"
+        },
+        {
+            "chain_id": 250,
+            "id": 7,
+            "name": "Fantom",
+            "rpc_url": "wss://fantom.callstaticrpc.com",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "fantom",
+            "txn_explorer_url": "https://ftmscan.com"
+        },
+        {
+            "chain_id": 1284,
+            "id": 8,
+            "name": "Moonbeam",
+            "rpc_url": "https://moonbeam.unitedbloc.com:3000",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "moonbeam",
+            "txn_explorer_url": "https://moonbeam.moonscan.io"
+        },
+        {
+            "chain_id": 1285,
+            "id": 9,
+            "name": "Moonriver",
+            "rpc_url": "https://rpc.api.moonriver.moonbeam.network",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "moonriver",
+            "txn_explorer_url": "https://moonriver.moonscan.io"
+        },
+        {
+            "chain_id": 10,
+            "id": 10,
+            "name": "Optimism",
+            "rpc_url": "https://rpc.ankr.com/optimism",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "optimism",
+            "txn_explorer_url": "https://optimistic.etherscan.io/"
+        },
+        {
+            "chain_id": 1088,
+            "id": 11,
+            "name": "Metis",
+            "rpc_url": "https://metis-pokt.nodies.app",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "metis",
+            "txn_explorer_url": "https://explorer.metis.io"
+        },
+        {
+            "chain_id": 100,
+            "id": 12,
+            "name": "Gnosis",
+            "rpc_url": "https://rpc.ankr.com/gnosis",
+            "settings": {
+                "MAX_GAS": 100000000000,
+                "WAIT_TXN_RECEIPT_TIMEOUT": 300,
+                "GAS_PRICE_INCREASE": 1.1
+            },
+            "slug": "gnosis",
+            "txn_explorer_url": "https://gnosisscan.io/"
+        }
+    ]
+}

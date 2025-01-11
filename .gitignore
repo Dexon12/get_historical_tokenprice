@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*pycache*
+*.py[cod]
+*$py.class
+*.pyc
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+my_new_env/
+env.bak/
+venv.bak/
+    
+#PEP 582
+__pypackages__/
+
+# Ignore log files
+*.log
+logs/**/*.log

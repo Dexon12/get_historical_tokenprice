@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+  postgres:
+    image: postgres:16-alpine
+    command: postgres -c 'max_connections=500'
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME} -p ${DB_PORT}" ]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  backend_client: 
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+      args:
+        - PYTHON_VERSION
+    restart: always
+    ports:
+      - "${BACKEND_PORT}:777"
+      - "${DEBUG_MODE_PORT_BACK}:${DEBUG_MODE_PORT_BACK}"
+    command: >
+      sh -c "alembic -c backend/app/alembic.ini upgrade head && 
+            if [ \"$DEBUG_MODE\" = \"true\" ]; then
+                python3 -m debugpy --listen 0.0.0.0:${DEBUG_MODE_PORT_BACK} -m uvicorn backend.app.api.main:app --reload --host=0.0.0.0 --port=777;
+            else
+                uvicorn backend.app.api.main:app --reload --host=0.0.0.0 --port=777;
+            fi"
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  chainlist_api:
+    build:
+      context: ./quickstarts-historical-prices-api
+      dockerfile: Dockerfile
+    container_name: chainlist_api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_ENABLE_TESTNETS=true
+      - NEXT_PUBLIC_DEFAULT_CHAIN=mainnet
+      - NEXT_TELEMETRY_DISABLED=1
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_volume:
+    driver: local
